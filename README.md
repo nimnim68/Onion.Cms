@@ -1,4 +1,4 @@
-# PMA.Sop 
+# Onion.Cms
 
 This source code is used with a talk I give on Onion Architecture
 
@@ -15,7 +15,7 @@ Use these instructions to get the project up and running.
 # Prerequisites
 You will need the following tools:
 
-Visual Studio 2019 
+Visual Studio 2022 or 2019
 
 .Net 5.0 
 
