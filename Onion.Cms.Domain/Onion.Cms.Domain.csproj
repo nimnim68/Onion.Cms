@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="About\Commands\**" />
+    <Compile Remove="About\Queries\**" />
+    <Compile Remove="About\Repositories\**" />
+    <Compile Remove="Common\Queries\**" />
+    <Compile Remove="Payments\Queries\**" />
+    <Compile Remove="Sample\**" />
+    <Compile Remove="SMS\Commands\**" />
+    <Compile Remove="SMS\Queries\**" />
+    <Compile Remove="SMS\Repositories\**" />
+    <Compile Remove="Wallet\Commands\**" />
+    <Compile Remove="Wallet\Queries\**" />
+    <Compile Remove="Zone\Commands\**" />
+    <Compile Remove="Zone\Queries\**" />
+    <Compile Remove="Zone\Repositories\**" />
+    <EmbeddedResource Remove="About\Commands\**" />
+    <EmbeddedResource Remove="About\Queries\**" />
+    <EmbeddedResource Remove="About\Repositories\**" />
+    <EmbeddedResource Remove="Common\Queries\**" />
+    <EmbeddedResource Remove="Payments\Queries\**" />
+    <EmbeddedResource Remove="Sample\**" />
+    <EmbeddedResource Remove="SMS\Commands\**" />
+    <EmbeddedResource Remove="SMS\Queries\**" />
+    <EmbeddedResource Remove="SMS\Repositories\**" />
+    <EmbeddedResource Remove="Wallet\Commands\**" />
+    <EmbeddedResource Remove="Wallet\Queries\**" />
+    <EmbeddedResource Remove="Zone\Commands\**" />
+    <EmbeddedResource Remove="Zone\Queries\**" />
+    <EmbeddedResource Remove="Zone\Repositories\**" />
+    <None Remove="About\Commands\**" />
+    <None Remove="About\Queries\**" />
+    <None Remove="About\Repositories\**" />
+    <None Remove="Common\Queries\**" />
+    <None Remove="Payments\Queries\**" />
+    <None Remove="Sample\**" />
+    <None Remove="SMS\Commands\**" />
+    <None Remove="SMS\Queries\**" />
+    <None Remove="SMS\Repositories\**" />
+    <None Remove="Wallet\Commands\**" />
+    <None Remove="Wallet\Queries\**" />
+    <None Remove="Zone\Commands\**" />
+    <None Remove="Zone\Queries\**" />
+    <None Remove="Zone\Repositories\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="About\Entities\" />
+    <Folder Include="Basket\Entities\" />
+    <Folder Include="Basket\Dtos\" />
+    <Folder Include="Orders\Dtos\" />
+    <Folder Include="DTOs\Site\Common\" />
+    <Folder Include="Payments\Commands\" />
+    <Folder Include="Orders\Commands\" />
+    <Folder Include="Orders\Entities\" />
+    <Folder Include="Orders\Queries\" />
+    <Folder Include="Orders\Repositories\" />
+    <Folder Include="Product\Repositories\Categories\" />
+    <Folder Include="Slider\Entities\" />
+    <Folder Include="Slider\Repositories\" />
+    <Folder Include="SMS\Entities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Specification" Version="4.2.0" />
+    <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Onion.Cms.Framework\Onion.Cms.Framework.csproj" />
+    <ProjectReference Include="..\Onion.Cms.Resources\Onion.Cms.Resources.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,39 @@
+﻿@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = "تماس با ما";
+}
+
+
+<div class="contact_map mt-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="map-area">
+                    <div id="googleMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact_message content">
+                    <h3>ارتباط با ما</h3>
+                    <ul>
+                        <li><i class="fa fa-address-card-o"></i>  میدان ونک - خیابان ملاصدرا - کردستان جنوب - بن بست توفیق - پلاک 4 - واحد 2</li>
+                        <li><i class="fa fa-phone-square"></i><a href="tel:(021)86051168">86051168</a> </li>
+                        <li><i class="fa fa-phone-square"></i><a href="tel:(021)88612966">88612966</a> </li>
+                        <li><i class="fa fa-mobile-phone"></i><a href="tel:09120319606">09120319606</a> </li>
+                        <li><i class="fa fa-envelope"></i> <a href="#">Info@shirjat.ir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdWLY_Y6FL7QGW5vcO3zajUEsrKfQPNzI"></script>
+<script src="https://www.google.com/jsapi"></script>
+<script src="/themes/autima/js/map.js"></script>

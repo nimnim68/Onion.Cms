@@ -1,0 +1,99 @@
+﻿@using SHPA.Common.Extension
+@using Onion.Cms.Web.Common
+@model Onion.Cms.Domain.DTOs.QueryList<Onion.Cms.Domain.Orders.Dtos.AdminOrderDto>
+@inject IResourceManager _resourceManager
+@{
+    var row = 1;
+}
+<div class="col-12">
+    <div class="box">
+        <div class="box-header">
+            <h4 class="box-title align-items-start flex-column">
+                @_resourceManager[SharedResource.NewOrders]
+                <small class="subtitle">@Model.TotalCount @_resourceManager[SharedResource.NewOrders] </small>
+            </h4>
+        </div>
+        <div class="box-body">
+            <div class="table-responsive">
+                <table class="table no-border">
+                    <thead>
+                        <tr class="text-uppercase bg-lightest">
+                            <th>
+                                <span class="text-dark">#</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">شماره سفارش</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">تاریخ سفارش</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">مبلغ قابل پرداخت</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">مبلغ کل</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">وضعیت</span>
+                            </th>
+                            <th>
+                                <span class="text-fade">عملیات پرداخت</span>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Data)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        @row
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        @item.Factor
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        @item.OrderDate.EnglishToPersian("$yyyy/$MM/$dd")
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        @item.PayableAmount.ToToman()
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        @item.Amount.ToToman()
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary-light badge-lg">
+                                        @item.OrderState
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-dark font-weight-600 d-block font-size-16">
+                                        <input type="checkbox" name="IsPay" checked="@item.IsPay" /><br />
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <a href="~/Admin/Orders/Invoice/@item.OrderId"
+                                       class="waves-effect waves-light btn btn-info btn-circle mx-5">
+                                        <span class="mdi mdi-arrow-right"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            row++;
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

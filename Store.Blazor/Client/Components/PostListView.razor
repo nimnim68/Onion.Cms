@@ -1,0 +1,53 @@
+﻿@using Store.Blazor.Shared.Models
+@inject HttpClient Http
+
+<Store.Blazor.Client.Components.Loading Show="posts==null"/>
+
+@if (posts != null)
+{
+<div class="blog_page_section mt-23">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog_wrapper">
+                 
+                    @foreach (var item in posts.Post)
+                    {
+                        <Store.Blazor.Client.Components.PostInfoView Post="item"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<!--blog pagination area start-->
+<div class="blog_pagination">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="pagination">
+                    <ul>
+                        <li class="current">1</li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#">بعدی</a></li>
+                        <li><a href="#">>></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--blog pagination area end-->
+
+@code{
+    private ApiBlogListResponse posts;
+
+    protected override async Task OnInitializedAsync()
+    {
+       posts = await Http.GetFromJsonAsync<ApiBlogListResponse>("/api/blog/list");
+    }
+
+}

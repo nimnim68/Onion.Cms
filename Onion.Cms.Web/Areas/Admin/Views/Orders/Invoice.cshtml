@@ -1,0 +1,93 @@
+﻿@inject IResourceManager _resourceManager
+@using Onion.Cms.Web.Common
+@model Onion.Cms.Domain.Orders.Dtos.OrderDetailsAdminDto
+<div class="row">
+    <div class="col-12">
+        <div class="box">
+            <div class="box-header">
+                <h4 class="box-title">@_resourceManager[SharedResource.OrderDetail]</h4>
+            </div>
+            <section class="invoice printableArea">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bb-1 clearFix">
+                            <div class="text-left pb-15">
+                                <button id="print2" class="btn btn-rounded btn-default" type="button">
+                                    <span>
+                                        <i class="fa fa-print"></i> 
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row invoice-info">
+                    <div class="col-md-12 invoice-col">
+                        <strong></strong>
+                        <address>
+                            <strong class="text-blue font-size-24">سانی ادمین</strong><br>
+                            <strong class="d-inline">@_resourceManager[SharedResource.Address] : @Model.Address</strong><br>
+                            <strong>تلفن : @Model.PhoneNumber</strong>
+                        </address>
+                    </div>
+                    <div class="col-sm-12 invoice-col mb-15">
+                        <div class="invoice-details row no-margin">
+                            <div class="col-md-6 col-lg-4"><b>شناسه فاکتور : </b> FC12548</div>
+                            <div class="col-md-6 col-lg-4"><b>تاریخ سفارش : </b> 1399/08/22</div>
+                            <div class="col-md-6 col-lg-4"><b>وضعیت : </b> 6037999988887777</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <tbody>
+                                <tr class="table-secondary">
+                                    <th>#</th>
+                                    <th>@_resourceManager[SharedResource.Product]</th>
+                                    <th>@_resourceManager[SharedResource.CategoryName]</th>
+                                    <th class="text-right">@_resourceManager[SharedResource.Quantity]</th>
+                                    <th class="text-right">@_resourceManager[SharedResource.Price]</th>
+                                    <th class="text-right">@_resourceManager[SharedResource.PriceDiscount]</th>
+                                    <th class="text-right">@_resourceManager[SharedResource.TotalPrice]</th>
+                                </tr>
+                                @{
+                                    var row = 1;
+                                }
+                                @foreach (var item in Model.OrderDetails)
+                                {
+                                    <tr>
+                                        <td>@row</td>
+                                        <td>@item.ProductTitle</td>
+                                        <td>@item.CategoryName</td>
+                                        <td class="text-right">@item.Count</td>
+                                        <td class="text-right">@item.Price.ToToman()</td>
+                                        <td class="text-right">@item.DiscountPrice.ToToman()</td>
+                                        <td class="text-right">@item.FinalPrice.ToToman()</td>
+                                    </tr>
+                                    row++;
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-left">
+                        <div class="total-payment">
+                            <h3><b>مبلغ قابل پرداخت : </b> @Model.OrderDetails.Sum(x=>x.FinalPrice).ToToman()</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-print">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-rounded btn-success pull-right">
+                            <i class="fa fa-credit-card"></i> تایید
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
