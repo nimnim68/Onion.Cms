@@ -35,7 +35,7 @@ namespace Onion.Cms.Web.Controllers
             var queryParameter = new Dictionary<string, string>()
             {
                 {"Email" , "admin@admin.com"} ,
-                {"Password" , "Mr@123"}  ,
+                {"Password" , "Mr@12345"}  ,
                 {"RememberMe" , "true"}
             };
             var res = await _client.SendHttpRequestAsync<AuthenticationModel>(Method.GET, _apiPath.LoginPath, header, null, queryParameter);
@@ -52,7 +52,7 @@ namespace Onion.Cms.Web.Controllers
             var body = new
             {
                 Email = "admin@admin.com",
-                Password = "M@123",
+                Password = "M@12345",
                 RememberMe = true
             };
             var res = await _client.SendHttpRequestAsync<string>(Method.POST, _apiPath.GetOrderPath, header, body);
